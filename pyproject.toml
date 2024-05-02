@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "pytest-same-file"
+version = "0.1.0"
+description = ""
+authors = ["Jan Meppe"]
+readme = "README.md"
+packages = [{include = "*", from="src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+pytest = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = [
+    "src",
+]
+python_files = "*.py"
+python_functions = "test_*"
